@@ -10,4 +10,8 @@ import SwiftUI
 @Observable
 class Expenses {
     var items = [ExpenseItem]()
+    
+    func removeItems(at offsets: IndexSet) {
+        self.items.remove(atOffsets: offsets)
+    }
 }
