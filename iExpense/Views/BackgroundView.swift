@@ -18,7 +18,7 @@ struct BackgroundView: View {
             
             ZStack {
                 Circle()
-                    .fill(.cyan)
+                    .fill(.indigo)
                     .scaledToFill()
                     .frame(width: geometry.size.width, height: geometry.size.height / 1.2)
                     .position(x: geometry.size.width / 2, y: yBottom)
@@ -28,7 +28,7 @@ struct BackgroundView: View {
                     .frame(width: geometry.size.width / 2, height: geometry.size.height / 1.45)
                     .position(x: geometry.size.width / 2, y: yCenter)
                 Circle()
-                    .fill(.indigo)
+                    .fill(.cyan)
                     .scaledToFill()
                     .frame(width: geometry.size.width, height: geometry.size.height / 1.2)
                     .position(x: geometry.size.width / 2, y: yTop)

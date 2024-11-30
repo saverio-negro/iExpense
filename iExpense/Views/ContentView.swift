@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+extension Material: @retroactive View {}
+
 struct ContentView: View {
     
     @State private var expenses = Expenses()
@@ -15,10 +17,26 @@ struct ContentView: View {
         NavigationStack {
             ZStack {
                 BackgroundView()
+                .ignoresSafeArea()
+                VStack {
+                    List {
+                        ForEach(expenses.items, id: \.name) { item in
+                            Text(item.name)
+                                .foregroundStyle(.indigo)
+                                .listRowBackground(Material.thin)
+                        }
+                    }
+                    .scrollContentBackground(.hidden)
+                }
+                .padding(.vertical, 20)
             }
-            .ignoresSafeArea()
             .navigationTitle("iExpense")
-            .foregroundStyle(.white)
+            .toolbar {
+                Button("Add Item", systemImage: "plus") {
+                    let expense = ExpenseItem(name: "Test", type: "Test", amount: 5.0)
+                    expenses.items.append(expense)
+                }
+            }
         }
     }
 }
