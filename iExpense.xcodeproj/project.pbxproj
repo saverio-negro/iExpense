@@ -16,6 +16,11 @@
 			path = iExpense;
 			sourceTree = "<group>";
 		};
+		290AEFCE2CF8825D00D1A72E /* ViewModel */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			children = (
 				290AEFB22CF5EAE000D1A72E /* iExpense */,
 				290AEFB12CF5EAE000D1A72E /* Products */,
+				290AEFCE2CF8825D00D1A72E /* ViewModel */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +68,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				290AEFB22CF5EAE000D1A72E /* iExpense */,
+				290AEFCE2CF8825D00D1A72E /* ViewModel */,
 			);
 			name = iExpense;
 			packageProductDependencies = (
