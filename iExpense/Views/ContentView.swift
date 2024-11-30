@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var expenses = Expenses()
+    
     var body: some View {
-        Text("")
+        NavigationStack {
+            List {
+                ForEach(expenses.items, id: \.name) { item in
+                    Text(item.name)
+                }
+            }
+        }
     }
 }
 
