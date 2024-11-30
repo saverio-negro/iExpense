@@ -13,11 +13,12 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(expenses.items, id: \.name) { item in
-                    Text(item.name)
-                }
+            ZStack {
+                BackgroundView()
             }
+            .ignoresSafeArea()
+            .navigationTitle("iExpense")
+            .foregroundStyle(.white)
         }
     }
 }
