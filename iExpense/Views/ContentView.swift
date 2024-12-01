@@ -22,9 +22,19 @@ struct ContentView: View {
                 VStack {
                     List {
                         ForEach(expenses.items) { item in
-                            Text(item.name)
-                                .foregroundStyle(.indigo)
-                                .listRowBackground(Material.thin)
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(item.name)
+                                        .font(.headline)
+                                    Text(item.type)
+                                }
+                                
+                                Spacer()
+                                
+                                Text(item.amount, format: .currency(code: "USD"))
+                            }
+                            .foregroundStyle(.indigo)
+                            .listRowBackground(Material.thin)
                         }
                         .onDelete(perform: expenses.removeItems)
                     }
@@ -35,12 +45,14 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 Button("Add Item", systemImage: "plus") {
-                    showingAddExpense.toggle()
+                    showingAddExpense = true
                 }
             }
         }
         .sheet(isPresented: $showingAddExpense) {
             AddView(expenses: expenses)
+                .presentationDetents([.medium])
+                .presentationBackground(Color.cyan.gradient)
         }
     }
 }
