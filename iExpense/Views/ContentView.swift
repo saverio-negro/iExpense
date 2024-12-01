@@ -18,27 +18,15 @@ struct ContentView: View {
         NavigationStack {
             ZStack {
                 BackgroundView()
-                .ignoresSafeArea()
+                    .ignoresSafeArea()
                 VStack {
-                    List {
-                        ForEach(expenses.items) { item in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(item.name)
-                                        .font(.headline)
-                                    Text(item.type)
-                                }
-                                
-                                Spacer()
-                                
-                                Text(item.amount, format: .currency(code: "USD"))
-                            }
-                            .foregroundStyle(.indigo)
-                            .listRowBackground(Material.thin)
-                        }
-                        .onDelete(perform: expenses.removeItems)
-                    }
-                    .scrollContentBackground(.hidden)
+                    
+                    // Personal Expenses List
+                    ExpensesListView(expenses: expenses, type: "Personal")
+                    
+                    // Business Expenses List
+                    ExpensesListView(expenses: expenses, type: "Business")
+                    
                 }
                 .padding(.vertical, 20)
             }
