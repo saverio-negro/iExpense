@@ -20,11 +20,12 @@ struct ContentView: View {
                 .ignoresSafeArea()
                 VStack {
                     List {
-                        ForEach(expenses.items, id: \.name) { item in
+                        ForEach(expenses.items) { item in
                             Text(item.name)
                                 .foregroundStyle(.indigo)
                                 .listRowBackground(Material.thin)
                         }
+                        .onDelete(perform: expenses.removeItems)
                     }
                     .scrollContentBackground(.hidden)
                 }
