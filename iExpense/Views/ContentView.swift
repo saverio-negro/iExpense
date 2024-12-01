@@ -40,7 +40,7 @@ struct ContentView: View {
         .sheet(isPresented: $showingAddExpense) {
             AddView(expenses: expenses)
                 .presentationDetents([.medium])
-                .presentationBackground(Color.cyan.gradient)
+                .presentationBackground(Material.regular)
         }
     }
 }
