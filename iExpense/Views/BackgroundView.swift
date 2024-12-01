@@ -16,21 +16,25 @@ struct BackgroundView: View {
             let yCenter = geometry.size.height * UnitPoint.center.y
             let yBottom = geometry.size.height * UnitPoint.bottom.y
             
+            let circleHeight = geometry.size.height * 0.8
+            let middleCircleHeight = geometry.size.height * 0.65
+            
             ZStack {
+                Color.cyan
                 Circle()
                     .fill(.indigo)
                     .scaledToFill()
-                    .frame(width: geometry.size.width, height: geometry.size.height / 1.2)
+                    .frame(width: geometry.size.width, height: circleHeight)
                     .position(x: geometry.size.width / 2, y: yBottom)
                 Circle()
                     .fill(.blue)
                     .scaledToFill()
-                    .frame(width: geometry.size.width / 2, height: geometry.size.height / 1.45)
+                    .frame(width: geometry.size.width / 2, height: middleCircleHeight)
                     .position(x: geometry.size.width / 2, y: yCenter)
                 Circle()
                     .fill(.cyan)
                     .scaledToFill()
-                    .frame(width: geometry.size.width, height: geometry.size.height / 1.2)
+                    .frame(width: geometry.size.width, height: circleHeight)
                     .position(x: geometry.size.width / 2, y: yTop)
             }
         }

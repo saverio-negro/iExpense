@@ -17,18 +17,28 @@ struct AddView: View {
     let types = ["Business", "Personal"]
     
     var body: some View {
-        Form {
-            TextField("Name", text: $name)
-            
-            Picker("Type", selection: $type) {
-                ForEach(types, id: \.self) {
-                    Text($0)
+        NavigationStack {
+            Form {
+                TextField("Name", text: $name)
+                
+                Picker("Type", selection: $type) {
+                    ForEach(types, id: \.self) {
+                        Text($0)
+                    }
+                }
+                
+                TextField("Amount", value: $amount, format: .currency(code: "USD"))
+                    .keyboardType(.decimalPad)
+            }
+            .navigationTitle("Add New Expense")
+            .toolbar {
+                Button("Save") {
+                    let item = ExpenseItem(name: name, type: type, amount: amount)
+                    expenses.items.append(item)
                 }
             }
-            
-            TextField("Amount", value: $amount, format: .currency(code: "USD"))
-                .keyboardType(.decimalPad)
         }
+        
     }
 }
 
