@@ -12,6 +12,7 @@ extension Material: @retroactive View {}
 struct ContentView: View {
     
     @State private var expenses = Expenses()
+    @State private var showingAddExpense = false
     
     var body: some View {
         NavigationStack {
@@ -34,10 +35,12 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 Button("Add Item", systemImage: "plus") {
-                    let expense = ExpenseItem(name: "Test", type: "Test", amount: 5.0)
-                    expenses.items.append(expense)
+                    showingAddExpense.toggle()
                 }
             }
+        }
+        .sheet(isPresented: $showingAddExpense) {
+            AddView(expenses: expenses)
         }
     }
 }
