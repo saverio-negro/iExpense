@@ -30,7 +30,7 @@ struct AddView: View {
                 }
                 .listRowBackground(Material.thin)
                 
-                TextField("Amount", value: $amount, format: .currency(code: "USD"))
+                TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                     .keyboardType(.decimalPad)
                     .listRowBackground(Material.thin)
             }
